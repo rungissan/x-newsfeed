@@ -1,0 +1,30 @@
+{
+  "name": "x/x-newsfeed",
+  "description": "Newsfeed",
+  "type": "typo3-cms-extension",
+  "require": {
+    "typo3/cms-core": "^9.5",
+    "mrs/mrs-template": "dev-master"
+  },
+  "license": [
+    "GPL-2.0+"
+  ],
+  "extra": {
+    "typo3/cms": {
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "extension-key": "x_newsfeed",
+      "web-dir": "web"
+    }
+  },
+  "replace": {
+    "x_newsfeed": "self.version",
+    "typo3-ter/x-newsfeed": "self.version"
+  },
+  "autoload": {
+    "psr-4": {
+      "X\\XNewsfeed\\": "Classes/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

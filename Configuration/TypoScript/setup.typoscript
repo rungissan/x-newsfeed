@@ -1,0 +1,5 @@
+page.includeJSFooter {
+  210_imagesloaded = EXT:x_newsfeed/Resources/Public/JavaScript/imagesloaded.pkgd.min.js
+  220_shufflejs = EXT:x_newsfeed/Resources/Public/JavaScript/shuffle.min.js
+  230_newsfeed = EXT:x_newsfeed/Resources/Public/JavaScript/newsfeed.js
+}

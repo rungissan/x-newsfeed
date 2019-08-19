@@ -1,0 +1,83 @@
+<html data-namespace-typo3-fluid="true"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:m="http://typo3.org/ns/Mrs/MrsTemplate/ViewHelpers"
+      xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
+<f:comment>
+  <ul class="breadcrumb">
+    <li><f:link.page><v:page.info field="title"/></f:link.page></li>
+    <li class="active">{item.title}</li>
+  </ul>
+</f:comment>
+<div class="newsfeed-single">
+  <div class="newsfeed-item">
+    <div class="col-sm-8 newsfeed-content">
+      <h1 class="newsfeed-title">{item.title}</h1>
+      <f:if condition="{item.itemdate}">
+        <div class="newsfeed-extra">
+          <span class="glyphicon glyphicon-calendar"></span>
+          <f:format.date format="{v:l(key:'dateFormat')}">{item.itemdate}</f:format.date>
+        </div>
+      </f:if>
+      <div class="newsfeed-bodytext">{item.bodytext -> f:format.raw()}</div>
+      <f:link.page pageUid="{v:page.info(field: 'uid')}" class="btn btn-default"><v:l key="back"/></f:link.page>
+    </div>
+    <aside class="col-sm-4 newsfeed-images">
+      <div class="thumbnail">
+        <a data-gallery="newsfeed-{item.image.originalResource.uid}" data-title="{item.image.description}" href="{f:uri.image(image: item.image.originalResource, treatIdAsReference: 1, maxWidth: 1920)}">
+          {v:media.image(
+          class: "lazyload img-responsive",
+          srcset: "132,165,290,350,450,470,737,1140,1920",
+          treatIdAsReference: 1,
+          format: "jpg",
+          src: item.image.originalResource,
+          maxW: 2560,
+          title: item.image.originalResource.title,
+          alt: item.image.originalResource.alternative,
+          additionalAttributes: "{data-sizes: 'auto'}")
+          -> v:format.replace(substring: ' src=', replacement: ' src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src=')
+          -> v:format.replace(substring: ' srcset=', replacement: ' data-srcset=')
+          -> f:format.raw()}
+        </a>
+        <f:if condition="{item.image.description}">
+          <div class="caption">
+            {item.image.description}
+          </div>
+        </f:if>
+      </div>
+      <f:for each="{item.additionalImages}" as="image">
+        <div class="thumbnail">
+          <a data-gallery="newsfeed-{image.originalResource.uid}" data-title="{image.description}" href="{f:uri.image(image: image.originalResource, treatIdAsReference: 1, maxWidth: 1920)}">
+            {v:media.image(
+            class: "lazyload img-responsive",
+            srcset: "132,165,290,350,450,470,737,1140,1920",
+            treatIdAsReference: 1,
+            format: "jpg",
+            src: image.originalResource,
+            maxW: 2560,
+            title: image.originalResource.title,
+            alt: image.originalResource.alternative,
+            additionalAttributes: "{data-sizes: 'auto'}")
+            -> v:format.replace(substring: ' src=', replacement: ' src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src=')
+            -> v:format.replace(substring: ' srcset=', replacement: ' data-srcset=')
+            -> f:format.raw()}
+          </a>
+          <f:if condition="{image.originalResource.description}">
+            <div class="caption">
+              {image.originalResource.description}
+            </div>
+          </f:if>
+        </div>
+      </f:for>
+    </aside>
+  </div>
+</div>
+<style>
+  .newsfeed-single .newsfeed-extra {
+    margin-bottom: 15px;
+  }
+
+  .newsfeed-single .newsfeed-title {
+    margin-top: 0;
+  }
+</style>
+</html>

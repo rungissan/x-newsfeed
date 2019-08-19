@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+  <file source-language="en" target-language="en-CH" datatype="plaintext" original="messages" date="2016-09-11T21:05:14Z"
+        product-name="x-x-newsfeed">
+    <header/>
+    <body>
+      <trans-unit id="dateFormat">
+        <source>m/d/Y</source>
+        <target>m/d/Y</target>
+      </trans-unit>
+      <trans-unit id="back">
+        <source>Back</source>
+        <target>Back</target>
+      </trans-unit>
+      <trans-unit id="newsfeed">
+        <source>News feed</source>
+        <target>News feed</target>
+      </trans-unit>
+      <trans-unit id="newsfeed.mq">
+        <source>Media query</source>
+        <target>Media query</target>
+      </trans-unit>
+      <trans-unit id="tx_xnewsfeed_domain_model_item">
+        <source>News item</source>
+        <target>News item</target>
+      </trans-unit>
+      <trans-unit id="tx_xnewsfeed_domain_model_item.title">
+        <source>Title</source>
+        <target>Title</target>
+      </trans-unit>
+      <trans-unit id="tx_xnewsfeed_domain_model_item.image">
+        <source>Image</source>
+        <target>Image</target>
+      </trans-unit>
+      <trans-unit id="tx_xnewsfeed_domain_model_item.additional_images">
+        <source>Additional images</source>
+        <target>Additional images</target>
+      </trans-unit>
+      <trans-unit id="tx_xnewsfeed_domain_model_item.bodytext">
+        <source>Text</source>
+        <target>Text</target>
+      </trans-unit>
+      <trans-unit id="tx_xnewsfeed_domain_model_item.itemdate">
+        <source>Date</source>
+        <target>Date</target>
+      </trans-unit>
+      <trans-unit id="tx_xnewsfeed_domain_model_item.link">
+        <source>Link target</source>
+        <target>Link target</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

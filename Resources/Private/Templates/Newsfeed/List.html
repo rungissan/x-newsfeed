@@ -1,0 +1,89 @@
+<div class="newsfeed">
+  <f:for each="{items}" as="item">
+    <div class="newsfeed-item">
+      <f:if condition="{item.link}">
+        <f:then>
+          <f:link.typolink class="newsfeed-link" parameter="{item.link}">
+            <img class="newsfeed-image" alt="{item.title}" src="{f:uri.image(maxWidth: 370, image: item.image, treatIdAsReference: 1)}">
+            <span class="newsfeed-title">{item.title}</span>
+          </f:link.typolink>
+        </f:then>
+        <f:else>
+          <f:link.action class="newsfeed-link" action="show" arguments="{item: item}">
+            <img class="newsfeed-image" alt="{item.title}" src="{f:uri.image(maxWidth: 370, image: item.image, treatIdAsReference: 1)}">
+            <span class="newsfeed-title">{item.title}</span>
+          </f:link.action>
+        </f:else>
+      </f:if>
+    </div>
+  </f:for>
+</div>
+<style>
+  .newsfeed {
+    margin: -10px;
+  }
+
+  .newsfeed-item {
+    display: block;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .newsfeed-link {
+    display: block;
+    text-decoration: none !important;
+  }
+
+  .newsfeed-image {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .newsfeed-title {
+    position: absolute;
+    z-index: 10;
+    bottom: 70px;
+    left: 10px;
+    width: 68%;
+    padding: 5px 20px 5px 20px;
+    display: block;
+    opacity: 0;
+    background-color: #ffffff;
+    font-size: 1em;
+    line-height: 1.25em;
+    color: #666666;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all .5s;
+  }
+
+  .newsfeed-link:focus .newsfeed-title,
+  .newsfeed-link:hover .newsfeed-title {
+    opacity: .9;
+  }
+
+  @media not all and (min-width: 980px) {
+    .newsfeed-link .newsfeed-title {
+      opacity: .9;
+    }
+  }
+
+  <f:for each="{mqs}" as="mq" iteration="it">
+    <f:if condition="{it.isFirst}">
+      <f:then>
+        .newsfeed-item {
+          width: calc(100% / {mq.el});
+        }
+      </f:then>
+      <f:else>
+        @media(min-width: {mq.bp}px) <f:format.raw>{</f:format.raw>
+          .newsfeed-item <f:format.raw>{</f:format.raw>
+            width: calc(100% / {mq.el});
+          <f:format.raw>}</f:format.raw>
+        <f:format.raw>}</f:format.raw>
+      </f:else>
+    </f:if>
+  </f:for>
+</style>

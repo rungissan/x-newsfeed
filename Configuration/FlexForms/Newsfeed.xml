@@ -1,0 +1,18 @@
+<T3DataStructure>
+  <ROOT>
+    <type>array</type>
+    <el>
+      <settings.mq>
+        <TCEforms>
+          <label>LLL:EXT:x_newsfeed/Resources/Private/Language/locallang.xlf:newsfeed.mq</label>
+          <exclude>0</exclude>
+          <config>
+            <type>input</type>
+            <eval>trim</eval>
+            <default></default>
+          </config>
+        </TCEforms>
+      </settings.mq>
+    </el>
+  </ROOT>
+</T3DataStructure>
